@@ -1,11 +1,11 @@
 # NV Energy Data Plotter
 
 ## Description
-
-## Usage
 This application reads in the raw csv data from an NV Energy usage request data dump and outputs a bar chart of usage and the csv data used in the chart. 
 
 The output data differs from input since the data is grouped by day and the number of columns are reduced.
+
+## Usage
 
 ### Recommended Install
 
