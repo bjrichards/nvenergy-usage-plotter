@@ -25,22 +25,22 @@ def work_data(file_name: str) -> None:
     df: pd.DataFrame = pd.read_csv(INPUT_FILE_PATH)
 
     # Filter to only needed data
-    plot_df = get_data(df)
+    plot_df = get_data(df=df)
 
     # Save new df to file
-    if not os.path.exists(OUTPUT_FILE_PATH):
-        os.mkdir(OUTPUT_FILE_PATH)
+    if not os.path.exists(path=OUTPUT_FILE_PATH):
+        os.mkdir(path=OUTPUT_FILE_PATH)
     plot_df.to_csv(os.path.join(OUTPUT_FILE_PATH, file_name))
 
     # Create plot, show to user and save it to file
-    create_plot(plot_df, OUTPUT_PLOT_PATH)
+    create_plot(df=plot_df, output_file=OUTPUT_PLOT_PATH)
 
 
 def get_data(df: pd.DataFrame) -> pd.DataFrame:
     """Grabs only required data from input dataframe."""
     # Include only required data
     plot_df: pd.DataFrame = df.pivot_table(
-        "Usage", "Startdate", "powerFlow", aggfunc="sum"
+        values="Usage", index="Startdate", columns="powerFlow", aggfunc="sum"
     )
     return plot_df
 
@@ -52,12 +52,12 @@ def create_plot(df: pd.DataFrame, output_file: str) -> None:
 
     # Add labels on top of each bar showing the y-axis value (usage)
     for container in usage_plot.containers:  # type:ignore
-        usage_plot.bar_label(container)
+        usage_plot.bar_label(container=container)
 
     # Bar chart configurations
-    plt.title("Power Usage")
-    plt.xlabel("Date")
-    plt.ylabel("Usage (kWh)")
+    plt.title(label="Power Usage")
+    plt.xlabel(xlabel="Date")
+    plt.ylabel(ylabel="Usage (kWh)")
     plt.tight_layout()
     plt.legend(title="Power Flow")
 
@@ -75,7 +75,7 @@ if __name__ == "__main__":
     if len(sys.argv) > 1:
         for i in range(1, len(sys.argv)):
             file_name = sys.argv[i]
-            work_data(file_name)
+            work_data(file_name=file_name)
     else:
         file_name = cf.User_Config.file_name
-        work_data(file_name)
+        work_data(file_name=file_name)
