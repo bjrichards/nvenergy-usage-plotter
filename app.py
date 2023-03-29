@@ -52,7 +52,9 @@ def create_plot(df: pd.DataFrame, output_file: str) -> None:
 
     # Add labels on top of each bar showing the y-axis value (usage)
     for container in usage_plot.containers:  # type:ignore
-        usage_plot.bar_label(container=container)
+        usage_plot.bar_label(
+            container=container, fmt=f"%.{cf.User_Config.label_decimal_num}f"
+        )
 
     # Bar chart configurations
     plt.title(label="Power Usage")
