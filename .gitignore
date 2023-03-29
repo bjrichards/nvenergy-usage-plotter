@@ -1,5 +1,10 @@
+# Ignores
 env/
 input/*
 output/*
 
 __pycache__
+
+# Allows
+!/input/.txt
+!/output/.txt
