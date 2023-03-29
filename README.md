@@ -60,4 +60,4 @@ $ python3 app.py example0.csv example1.csv example2.csv ...
 ## Examples
 <img src="./readme_img/Figure_1.png">
 
-<img src="./readme_img/Figure_2.png">
+<img src="./readme_img/Figure_2_0.png">
