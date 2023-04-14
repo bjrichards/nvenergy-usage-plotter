@@ -1,6 +1,7 @@
 class User_Config:
     file_name: str = "input.csv"
-    label_decimal_num: int = 1
+    date_grouping: str = "D"  # Options are: D -> Date, M -> Month, Y -> Year
+    label_decimal_num: int = 1  # How many decimal points
 
 
 class App_Config:

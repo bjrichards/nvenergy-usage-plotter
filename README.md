@@ -3,7 +3,7 @@
 ## Description
 This application reads in the raw csv data from an NV Energy usage request data dump and outputs a bar chart of usage and the csv data used in the chart. 
 
-The output data differs from input since the data is grouped by day and the number of columns are reduced.
+The output data differs from input since the data is grouped by the user chosen period grouping and the number of columns are reduced.
 
 ## Usage
 
@@ -46,18 +46,40 @@ $ python3 app.py
 This application supports usage via terminal arguments. Be sure all files are placed in the _input/_ folder.
 
 #### Linux/MacOs
-```console
+```ps
 $ source env/bin/activate
+# For day grouping
 $ python3 app.py example0.csv example1.csv example2.csv ...
+# For month grouping
+$ python3 app.py -m example0.csv example1.csv example2.csv ...
+# For year grouping
+$ python3 app.py -y example0.csv example1.csv example2.csv ...
 ```
 
 #### Windows
 ```ps
 > env/scripts/activate
+# For day grouping
 > python app.py example0.csv example1.csv example2.csv ...
+# For month grouping
+> python app.py -m example0.csv example1.csv example2.csv ...
+# For year grouping
+> python app.py -y example0.csv example1.csv example2.csv ...
+```
+
+### Command Line Arguments
+```
+The below arguments must be placed before file names but after app.py
+-d : Group the values by day 
+-m : Group the values by month
+-y : Group the values by year
 ```
 
 ## Examples
 <img src="./readme_img/Figure_1.png">
 
 <img src="./readme_img/Figure_2_0.png">
+
+<img src="./readme_img/Figure_3.png">
+
+<img src="./readme_img/Figure_4.png">
